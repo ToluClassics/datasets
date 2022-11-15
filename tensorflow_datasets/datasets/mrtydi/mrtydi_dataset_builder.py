@@ -25,7 +25,7 @@ from typing import Mapping
 from tensorflow_datasets.core.utils.lazy_imports_utils import tensorflow as tf
 import tensorflow_datasets.public_api as tfds
 
-_BASE_DOWNLOAD_URL = 'https://tfds-mrtydi.s3.ca-central-1.amazonaws.com/mmarco/'
+_BASE_DOWNLOAD_URL = 'https://tfds-mrtydi.s3.ca-central-1.amazonaws.com/mmarco'
 
 
 class MrTydiConfig(tfds.core.BuilderConfig):
