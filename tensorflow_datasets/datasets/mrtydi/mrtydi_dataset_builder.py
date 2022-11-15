@@ -54,7 +54,7 @@ class MrTydiConfig(tfds.core.BuilderConfig):
         self.subdir = subdir
 
 
-class MrTydiBuilder(tfds.core.GeneratorBasedBuilder, tfds.core.ConfigBasedBuilder):
+class Builder(tfds.core.GeneratorBasedBuilder, tfds.core.ConfigBasedBuilder):
     """DatasetBuilder for MrTydi dataset."""
 
     VERSION = tfds.core.Version('1.0.0')

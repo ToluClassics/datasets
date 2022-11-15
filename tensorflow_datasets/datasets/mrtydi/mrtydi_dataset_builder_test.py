@@ -1,12 +1,12 @@
 """mrtydi dataset."""
 
 from tensorflow_datasets import testing
-from tensorflow_datasets.datasets.mrtydi import mrtydi
+from tensorflow_datasets.datasets.mrtydi import mrtydi_dataset_builder
 
 
 class MrTydiTest(testing.DatasetBuilderTestCase):
     """Tests for MrTydi dataset."""
-    DATASET_CLASS = mrtydi.MrTydiBuilder
+    DATASET_CLASS = mrtydi_dataset_builder.Builder
     BUILDER_CONFIG_NAMES_TO_TEST = ['mmarco-en']
     SPLITS = {
         'query': 2,  # Number of fake queries
