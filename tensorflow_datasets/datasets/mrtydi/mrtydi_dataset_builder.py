@@ -319,8 +319,8 @@ def _parse_query_json(text):
     data = json.loads(text)
     data['metadata'] = {}
     return {
-        'query_id': data['_id'],
-        'query': data['text'],
+        'query_id': data['id'],
+        'query': data['contents'],
         'query_metadata': json.dumps(data['metadata']),
     }
 
@@ -332,8 +332,8 @@ def _parse_passage_json(text):
     if 'title' in data:
         metadata['title'] = data['title']
     return {
-        'passage_id': data['_id'],
-        'passage': data['text'],
+        'passage_id': data['id'],
+        'passage': data['contents'],
         'passage_metadata': json.dumps(metadata),
     }
 
