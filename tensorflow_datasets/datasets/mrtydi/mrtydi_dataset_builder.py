@@ -319,8 +319,8 @@ def _parse_query_json(text):
     data = json.loads(text)
     data['metadata'] = {}
     return {
-        'query_id': data['id'],
-        'query': data['contents'],
+        'query_id': data['_id'],
+        'query': data['text'],
         'query_metadata': json.dumps(data['metadata']),
     }
 
