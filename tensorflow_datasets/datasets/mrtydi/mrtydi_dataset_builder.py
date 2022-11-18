@@ -317,6 +317,7 @@ class Builder(tfds.core.GeneratorBasedBuilder, tfds.core.ConfigBasedBuilder):
 def _parse_query_json(text):
     """Parses query json object."""
     data = json.loads(text)
+    data['metadata'] = {}
     return {
         'query_id': data['_id'],
         'query': data['text'],
@@ -327,7 +328,7 @@ def _parse_query_json(text):
 def _parse_passage_json(text):
     """Parses passage json object."""
     data = json.loads(text)
-    metadata = data['metadata']
+    metadata = {}
     if 'title' in data:
         metadata['title'] = data['title']
     return {
