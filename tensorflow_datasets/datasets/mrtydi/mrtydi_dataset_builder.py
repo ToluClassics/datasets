@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""MrTydi dataset."""
+"""beir dataset."""
 
 from __future__ import annotations
 
@@ -37,7 +37,7 @@ class MrTydiConfig(tfds.core.BuilderConfig):
                  qrel_splits: Mapping[str, str],
                  subdir=None,
                  **kwargs):
-        """BuilderConfig for MrTydi.
+        """BuilderConfig for Beir.
 
         Args:
           name: Name for the config.
@@ -62,7 +62,7 @@ class Builder(tfds.core.GeneratorBasedBuilder, tfds.core.ConfigBasedBuilder):
         '1.0.0': 'Initial release.',
     }
 
-    BUILDER_CONFIGS = [
+    BUILDER_CONFIGS = BUILDER_CONFIGS = [
         MrTydiConfig(
             'mmarco-en',
             download_url=f'{_BASE_DOWNLOAD_URL}/en.zip',
@@ -167,7 +167,7 @@ class Builder(tfds.core.GeneratorBasedBuilder, tfds.core.ConfigBasedBuilder):
 
     def _info(self) -> tfds.core.DatasetInfo:
         """Returns the dataset metadata."""
-        # TODO(MrTydi): Specifies the tfds.core.DatasetInfo object
+        # TODO(beir): Specifies the tfds.core.DatasetInfo object
         return self.dataset_info_from_configs(
             features=tfds.features.FeaturesDict({
                 'query_id': tfds.features.Text(),
@@ -178,7 +178,7 @@ class Builder(tfds.core.GeneratorBasedBuilder, tfds.core.ConfigBasedBuilder):
                 'passage_metadata': tfds.features.Text(),
                 'score': tf.float32,
             }),
-            homepage='',
+            homepage='https://github.com/beir-cellar/beir',
         )
 
     def _split_generators(self, dl_manager: tfds.download.DownloadManager,
@@ -317,7 +317,6 @@ class Builder(tfds.core.GeneratorBasedBuilder, tfds.core.ConfigBasedBuilder):
 def _parse_query_json(text):
     """Parses query json object."""
     data = json.loads(text)
-    data['metadata'] = {}
     return {
         'query_id': data['_id'],
         'query': data['text'],
@@ -328,7 +327,7 @@ def _parse_query_json(text):
 def _parse_passage_json(text):
     """Parses passage json object."""
     data = json.loads(text)
-    metadata = {}
+    metadata = data['metadata']
     if 'title' in data:
         metadata['title'] = data['title']
     return {
