@@ -332,7 +332,7 @@ def _parse_passage_json(text):
     if 'title' in data:
         metadata['title'] = data['title']
     return {
-        'passage_id': data['_id'],
+        'passage_id': data['id'],
         'passage': data['contents'],
         'passage_metadata': json.dumps(metadata),
     }
