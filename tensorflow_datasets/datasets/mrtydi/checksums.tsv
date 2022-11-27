@@ -1,3 +1,1 @@
-# TODO(mrtydi): If your dataset downloads files, then the checksums
-# will be automatically added here when running
-# `tfds build --register_checksums`.
+https://tfds-mrtydi.s3.ca-central-1.amazonaws.com/mmarco/de.zip	1230894308	b25dc84d41ed22bfb6535f26cd5b89e83e9c8464cd9b4e08e992a17804a267e6	de.zip
