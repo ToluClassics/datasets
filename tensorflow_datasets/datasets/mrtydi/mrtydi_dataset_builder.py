@@ -327,7 +327,7 @@ def _parse_query_json(text):
 def _parse_passage_json(text):
     """Parses passage json object."""
     data = json.loads(text)
-    metadata = data['metadata']
+    metadata = {}
     if 'title' in data:
         metadata['title'] = data['title']
     return {

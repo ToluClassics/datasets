@@ -23,3 +23,4 @@ tfds.builder_cls('beir')
 from tensorflow_datasets.core import lazy_builder_import
 
 Beir = lazy_builder_import.LazyBuilderImport('beir')
+
